@@ -17,6 +17,13 @@ class Order:
 class POSSystem:
     def __init__(self):
         self.menu = {
+        'BBQ Chicken': Sandwich('BBQ Chicken', 6.75),
+        'Roast Beef': Sandwich('Roast Beef', 6.25),
+        'Ruben': Sandwich('Ruben', 5.75),
+        'Italian Cold Cut': Sandwich('Italian Cold Cut', 7.25),
+        'Turkey': Sandwich('Turkey', 6.25),
+        'Meatball Sub': Sandwich('Meatball Sub', 7.00),
+        'Cheesesteak': Sandwich('Cheesesteak', 7.00)
 
         }
 
