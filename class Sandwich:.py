@@ -1,21 +1,43 @@
 class Sandwich:
+    """Represents a sandwich with a name and a price."""
     def __init__(self, name, price):
+        """
+        Initialize a Sandwich object
+
+        Parameters:
+        name(str): The name of the sandwich.
+        price(float): The price of the sandwich.
+        """
         self.name = name
         self.price = price
 
 class Order:
+    """Represents a customer's order"""
     def __init__(self):
+        
         self.order_items = []
 
     def add_item(self, item):
+        """
+        Add a sandwich to the order
+        Parameters:
+        item (Sandwich): The sandwich to add to the order
+        """
         self.order_items.append(item)
 
     def calculate_total(self):
+        """
+        Calculate the total price of the order
+        Returns:
+        float: The total price of the order
+        """
         total = sum(item.price for item in self.order_items)
         return total
 
 class POSSystem:
+    """Represents a point of sale system for a sandwich shop."""
     def __init__(self):
+        """Initialize a POSSystem object with a menu of sandwiches."""
         self.menu = {
         'BBQ Chicken': Sandwich('BBQ Chicken', 6.75),
         'Roast Beef': Sandwich('Roast Beef', 6.25),
@@ -28,11 +50,19 @@ class POSSystem:
         }
 
     def display_menu(self):
+        """Display the menu with sandwich names and prices."""
+        
         print("Menu:")
+        
         for item in self.menu.values():
             print(f"{item.name} - ${item.price:.2f}")
 
     def take_order(self):
+        """
+        Take a customer's order by allowing them to select sandwiches from the menu.
+        Returns:
+        Order: The customer's order.
+        """
         order = Order()
         while True:
             self.display_menu()
@@ -46,7 +76,10 @@ class POSSystem:
         return order
 
     def process_order(self):
+        """Process a customer's order, calculate the total, and print a receipt."""
+        
         order = self.take_order()
+        
         if order.order_items:
             total = order.calculate_total()
             print("\nReceipt:")
